@@ -16,14 +16,14 @@ scenes=(
 for scene in "${scenes[@]}"
 do
     echo "Processing scene: $scene"
-    
+
     # Check if the folder already exists
     if [ -d "$scene" ]; then
         echo "Folder $scene already exists, skipping download"
     else
         zip_file="${scene}.zip"
         wget "https://huggingface.co/datasets/gradient-spaces/Wild-SLAM/resolve/main/iPhone/${zip_file}"
-        
+
         if [ $? -eq 0 ]; then
             echo "Successfully downloaded ${zip_file}"
             unzip -q "${zip_file}"
@@ -38,7 +38,7 @@ do
             echo "Failed to download ${zip_file}"
         fi
     fi
-    
+
     echo "Finished processing ${scene}"
     echo "-----------------------------"
 done

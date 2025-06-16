@@ -3,9 +3,9 @@ import torch
 import argparse
 import os
 
-from src import config
-from src.slam import SLAM
-from src.utils.datasets import get_dataset
+from wildgs_slam import config
+from wildgs_slam.slam import SLAM
+from wildgs_slam.utils.datasets import get_dataset
 from time import gmtime, strftime
 from colorama import Fore,Style
 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
                  f"   output: {output_dir}\n"+ \
                  "-"*30
     print(start_info)
-    
+
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 

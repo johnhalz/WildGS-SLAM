@@ -1,0 +1,76 @@
+[project]
+name = "wildgs-slam"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "colorama>=0.4.6",
+    "glfw>=2.9.0",
+    "imgviz>=1.7.6",
+    "jkp-depth-anything-v2>=0.1.1",
+    "lietorch",
+    "matplotlib>=3.10.3",
+    "munch>=4.0.0",
+    "open3d>=0.19.0",
+    "opencv-python>=4.11.0.86",
+    "openexr>=3.3.4",
+    "rich>=14.0.0",
+    "scipy>=1.15.3",
+    "setuptools>=80.9.0",
+    "torchvision>=0.21.0",
+    "tqdm>=4.67.1",
+    "xformers>=0.0.29.post3",
+]
+
+[[project.authors]]
+name = "John Halazonetis"
+email = "john.halazonetis@icloud.com"
+
+[tool.ruff]
+exclude = [
+    ".DS_Store",
+    ".coverage",
+    ".git",
+    ".gitattributes",
+    ".gitignore",
+    ".gitmodules",
+    ".idea",
+    ".md",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".toml",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pycache__",
+    "build",
+    "dist",
+    "htmlcov",
+    "node_modules",
+    "package-lock.json",
+]
+line-length = 100
+indent-width = 4
+target-version = "py313"
+
+[tool.tomlsort]
+in_place = true
+sort_first = ["project", "dependency-groups"]
+sort_table_keys = false
+sort_inline_tables = true
+sort_inline_arrays = false
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+docstring-code-format = false
+docstring-code-line-length = "dynamic"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = ["W"]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
