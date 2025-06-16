@@ -97,7 +97,7 @@ class GaussianPacket:
         kf_window=None,
         keyframe_colors=None,
         full_traj=None,
-        full_traj_gt=None
+        full_traj_gt=None,
     ):
         self.has_gaussians = False
         if gaussians is not None:
@@ -124,8 +124,8 @@ class GaussianPacket:
         self.finish = finish
         self.kf_window = kf_window
         self.keyframe_colors = keyframe_colors
-        self.full_traj=full_traj
-        self.full_traj_gt=full_traj_gt
+        self.full_traj = full_traj
+        self.full_traj_gt = full_traj_gt
 
     def resize_img(self, img, width):
         if img is None:
@@ -147,9 +147,7 @@ class GaussianPacket:
             self.get_scaling, scaling_modifier, self._rotation
         )
 
-    def build_covariance_from_scaling_rotation(
-        self, scaling, scaling_modifier, rotation
-    ):
+    def build_covariance_from_scaling_rotation(self, scaling, scaling_modifier, rotation):
         L = build_scaling_rotation(scaling_modifier * scaling, rotation)
         actual_covariance = L @ L.transpose(1, 2)
         symm = strip_symmetric(actual_covariance)
